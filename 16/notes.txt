@@ -1,0 +1,15 @@
+AA, DD, oDD, CC, BB, oBB, AA, II, JJ, oJJ, II, AA, DD, EE, FF, GG, HH, oHH, GG, FF, EE, oEE, DD, CC, oCC
+
+DD, BB, JJ, HH, EE, CC
+
+AA-DD: 1
+
+DD-BB: 2
+
+BB-JJ: 3
+
+JJ-HH: 7
+
+DD -> CC -> DD -> CC
+
+path[-4] == valve
