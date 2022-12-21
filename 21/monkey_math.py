@@ -7,7 +7,7 @@ OPS = {
     "+": operator.add,
     "-": operator.sub,
     "*": operator.mul,
-    "/": operator.floordiv,
+    "/": operator.truediv,
     "=": operator.eq,
 }
 
@@ -47,19 +47,18 @@ def search(graph, order, ops, upper=9000000000000):
 
     hi = upper
     lo = 0
-    minh = float("+inf")
     while lo <= hi:
         h = (hi + lo) // 2
         ops["humn"] = h
         found, (a, b) = calculate(graph, order, ops)
         if found:
-            minh = min(minh, h)
+            return h
         if a > b:
             lo = h + 1
         elif a <= b:
             hi = h - 1
 
-    return -1 if math.isinf(minh) else minh
+    return -1
 
 
 def parse():
@@ -81,7 +80,7 @@ def main():
     ops, graph = parse()
     order = topological_sort(graph)
     res, _ = calculate(graph, order, ops)
-    print(f"Part 1: {res}")
+    print(f"Part 1: {int(res)}")
     print(f"Part 2: {search(graph, order, ops)}")
 
 
